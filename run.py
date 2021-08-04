@@ -1,11 +1,11 @@
 import random
 import string
 from account import User
-def create_user(user_name, password):
+def create_user(user_name,password):
     '''
     function to create a new user
     '''
-    new_user = User(user_name, password)
+    new_user = User(user_name,password)
     return new_user
 def display_user():
     '''
@@ -37,7 +37,9 @@ def main():
             yes = input()
             if yes == "y": 
                 pass_code = string.ascii_letters
-                create_password = "".join(random.choice(pass_code) for i in range(10))         
+                create_password = "".join(random.choice(pass_code) for i in range(10)) 
+                print("pasword Generated!!!") 
+                continue       
                 
             else:
                 print("create password")

@@ -4,9 +4,8 @@ class User:
     '''
     user_list = []
 
-    def __init__(self,app_name, user_name,password):
+    def __init__(self, user_name,password):
         self.user_name = user_name
-        self.app_name = app_name
         self.password = password
 
     def save_user(self):
