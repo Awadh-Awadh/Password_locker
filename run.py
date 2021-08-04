@@ -12,11 +12,11 @@ def display_user():
     Function that returns all the saved contacts
     '''
     return User.display_user()
-def del_user(account):
+def del_user(user):
     '''
     Function to delete a contact
     '''
-    account.delete_user()
+    user.delete_user()
 
 def save_User(user):
     user.save_user()
@@ -115,8 +115,7 @@ def main():
             print("Want to delete account? 'y' 'n'")
             yes = input()
             if yes == 'y':
-                if len(User.user_list>1):
-                    del_user()
+                del_user((create_user(created_user_name,create_password)))
                 print("Deleted successfully")
             else:
                 print("Account not found") 
