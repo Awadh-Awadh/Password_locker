@@ -7,7 +7,7 @@ def create_user(user_name,password):
     '''
     new_user = User(user_name,password)
     return new_user
-def display_user():
+def display_user(contact):
     '''
     Function that returns all the saved contacts
     '''
@@ -19,7 +19,7 @@ def del_user(account):
     account.delete_user()
 
 def save_User(user):
-    return User.save_user()
+    user.save_user()
 
 def main():
     while True:
@@ -58,7 +58,7 @@ def main():
 
             else:
                 print(f"Congratulations {created_user_name}. Account creation was successful")
-                save_User(create_user(created_user_name , create_password))
+                save_User(create_user(created_user_name,create_password))
                 print('\n')
                 print("Proceed to login ")
                 print("enter your username")
