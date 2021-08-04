@@ -7,7 +7,7 @@ def main():
         print("Welcome to password locker")
         print('-'*30)
         print('\n')
-        print("Select a short codes to navigate: to create a new user use 'nn': To login to your account use: 'lg' To exit use: 'ex'")
+        print("Select a short codes to navigate: to create a new user use 'nn': To login to your account use: 'lg': To delete user use: 'dl' To exit use: 'ex'")
         short_code = input().lower()
         print('\n')
 
@@ -70,6 +70,7 @@ def main():
                 print("login Success")
                 print('\n')
                 print("-"*10)
+
         elif short_code == 'ex':
             break
         else:
