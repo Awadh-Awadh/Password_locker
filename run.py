@@ -7,11 +7,11 @@ def create_user(user_name,password):
     '''
     new_user = User(user_name,password)
     return new_user
-def display_user(contact):
+def display_user():
     '''
     Function that returns all the saved contacts
     '''
-    return User.find_user()
+    return User.display_user()
 def del_user(account):
     '''
     Function to delete a contact
@@ -26,7 +26,7 @@ def main():
         print("Welcome to password locker")
         print('-'*30)
         print('\n')
-        print("Select a short codes to navigate: to create a new user account use 'nn': To login to your account use: 'lg': To delete user use: 'dl' To find user use: 'fu' To exit use: 'ex'")
+        print("Select a short codes to navigate: to create a new user account use 'nn': To login to your account use: 'lg': To delete user use: 'dl' To display user use: 'du' To exit use: 'ex'")
         short_code = input().lower()
         print('\n')
 
@@ -97,7 +97,7 @@ def main():
                 print('\n')
                 print("-"*10)
 
-        elif short_code == 'fu':
+        elif short_code == 'du':
             if display_user():
                  print("Here is a list of all your users")
                  print('\n')
@@ -105,10 +105,10 @@ def main():
                      print(f"{user.user_name}")
 
                      print('\n')
-                 else:
-                     print('\n')
-                     print("You dont seem to have any contacts saved yet")
-                     print('\n')
+            else:
+                print('\n')
+                print("You dont seem to have any contacts saved yet")
+                print('\n')
 
         
         elif short_code == 'dl':
