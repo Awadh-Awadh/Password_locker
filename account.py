@@ -25,11 +25,9 @@ class User:
         User.user_list.remove(self)
 
     @classmethod
-    def find_user(cls,user_name):
+    def find_user(cls):
         '''
         Method that takes in a application name and return a string that matches that name
         '''
-        for user in cls.user_list:
-            if user.user_name == user_name:
-                return user
+        return cls.user_list
 

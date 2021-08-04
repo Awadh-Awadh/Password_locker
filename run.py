@@ -26,7 +26,7 @@ def main():
         print("Welcome to password locker")
         print('-'*30)
         print('\n')
-        print("Select a short codes to navigate: to create a new user use 'nn': To login to your account use: 'lg': To delete user use: 'dl' To find user use: 'fu' To exit use: 'ex'")
+        print("Select a short codes to navigate: to create a new user account use 'nn': To login to your account use: 'lg': To delete user use: 'dl' To find user use: 'fu' To exit use: 'ex'")
         short_code = input().lower()
         print('\n')
 
@@ -56,6 +56,7 @@ def main():
 
             else:
                 print(f"Congratulations {created_user_name}. Account creation was successful")
+                save_User(create_user(created_user_name , create_password))
                 print('\n')
                 print("Proceed to login ")
                 print("enter your username")
@@ -70,7 +71,7 @@ def main():
                 password_entered = input()
             else:
               print(f"Welcome {user_name_entered}.Login was successful")
-              save_User()
+              
         
         elif short_code == 'lg':
             print("welcome")
@@ -95,6 +96,7 @@ def main():
                 print("-"*10)
 
         elif short_code == 'fu':
+            if display_user():
                  print("Here is a list of all your users")
                  print('\n')
                  for user in display_user():
