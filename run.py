@@ -1,6 +1,12 @@
 import random
 import string
 from account import User
+def create_user(user_name, password):
+    '''
+    function to create a new user
+    '''
+    new_user = User(user_name, password)
+    return new_user
 def display_user():
     '''
     Function that returns all the saved contacts
@@ -11,6 +17,9 @@ def del_user(account):
     Function to delete a contact
     '''
     account.delete_user()
+
+def save_User(user):
+    return User.save_user()
 
 def main():
     while True:
@@ -24,22 +33,24 @@ def main():
         if short_code == 'nn':
             print("create username")
             created_user_name = input()
-            print("Want to create password? 'y' or 'n'")
+            print("Want sytem to generate passowrd? 'y' or 'n'")
             yes = input()
-            if yes == "y":          
+            if yes == "y": 
+                pass_code = string.ascii_letters
+                create_password = "".join(random.choice(pass_code) for i in range(10))         
+                
+            else:
                 print("create password")
-                created_password = input()
+                create_password = input()
 
                 print("confirm password")
                 confirm_password = input()
-            else:
-                pass_code = string.ascii_letters
-                created_password = "".join(random.choice(pass_code) for i in range(10))
+               
 
-            while created_password != confirm_password:
+            while create_password != confirm_password:
                 print("Password dont match")
                 print("Enter your password")
-                created_password = input()
+                create_password = input()
                 confirm_password = input()
            
 
@@ -51,7 +62,7 @@ def main():
                 user_name_entered = input()
                 print("enter your password")
                 password_entered = input()
-            while user_name_entered != created_user_name or password_entered!=created_password:
+            while user_name_entered != created_user_name or password_entered!=create_password:
                 print("Invalid login credentials")
                 print("Username")
                 user_name_entered = input()
@@ -59,6 +70,7 @@ def main():
                 password_entered = input()
             else:
               print(f"Welcome {user_name_entered}.Login was successful")
+              save_User()
         
         elif short_code == 'lg':
             print("welcome")
@@ -83,7 +95,6 @@ def main():
                 print("-"*10)
 
         elif short_code == 'fu':
-             if display_user():
                  print("Here is a list of all your users")
                  print('\n')
                  for user in display_user():
@@ -97,10 +108,11 @@ def main():
 
         
         elif short_code == 'dl':
-            print("want to delete account? 'y' 'n'")
+            print("Want to delete account? 'y' 'n'")
             yes = input()
             if yes == 'y':
-                del_user(User.user_list[1])
+                if len(User.user_list>1):
+                    del_user()
                 print("Deleted successfully")
             else:
                 print("Account not found") 

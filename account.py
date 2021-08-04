@@ -28,10 +28,6 @@ class User:
     def find_user(cls,user_name):
         '''
         Method that takes in a application name and return a string that matches that name
-        Args:
-            appName: appName to search for
-        Returns :
-            matching account username
         '''
         for user in cls.user_list:
             if user.user_name == user_name:
